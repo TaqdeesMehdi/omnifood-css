@@ -1,0 +1,331 @@
+@layer reset {
+  /* resorces
+FOR SHADES AND TINTS : maketinitsandshade
+FOR FACE IMAGE COPYWRITE FREE : uifaces
+FOR FREE IMAGES COPYWRITEFREE: unsplash
+gridegenerator
+*/
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  /* https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html */
+  [role="list"] {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    min-block-size: 100vh;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
+  img,
+  picture {
+    max-inline-size: 100%;
+    display: block;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+@layer base {
+  :root {
+    /* ENTER YOU COLOR SCHEMES */
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-gray-100: hsl(0, 2%, 79%);
+    --clr-brand-400: hsl(25, 88%, 75%);
+    /* ------END--------- */
+
+    /* ENTER YOU FONT SIZE FOR YOU WEB */
+    --ff-body: "Fira Sans", sans-serif;
+    --ff-heading: "Outfit", sans-serif;
+    /* ----------END-------- */
+
+    /* ENTER FONT SIZE */
+    --fs-300: 0.875rem;
+    --fs-400: 1rem;
+    --fs-500: 1.125rem;
+    --fs-600: 1.25rem;
+    --fs-700: 1.5rem;
+    --fs-800: 2rem;
+    --fs-900: 3.75rem;
+    --fs-1000: 3.75rem;
+    /* FOR LARGER SCREENS */
+    @media (width > 750px) {
+      --fs-300: 0.875rem;
+      --fs-400: 1rem;
+      --fs-500: 1.25rem;
+      --fs-600: 1.5rem;
+      --fs-700: 2rem;
+      --fs-800: 3rem;
+      --fs-900: 5rem;
+      --fs-1000: 7.3rem;
+    }
+  }
+  :root {
+    /* MAKE MORE VARS FOR MORE DECENT EXPERIENCE FOR FUTURE CODE EDITING */
+    --text-main: var();
+
+    --background-extra-light: var();
+    --background-light: var();
+    --background-main: var();
+    --background-dark: var();
+    --background-extra-dark: var();
+
+    --font-size-heading-sm: var(--fs-700);
+    --font-size-heading-regular: var(--fs-800);
+    --font-size-heading-lg: var(--fs-900);
+    --font-size-heading-xl: var(--fs-1000);
+
+    --font-size-sm: var(--fs-300);
+    --font-size-regular: var(--fs-400);
+    --font-size-md: var(--fs-500);
+    --font-size-lg: var(--fs-600);
+
+    /* DEFINE YOUR WANTED BORDER RADIUS */
+    --border-radius-1: 0.25rem;
+    --border-radius-2: 0.5rem;
+    --border-radius-3: 0.75rem;
+  }
+  html {
+    font-family: var(--ff-body);
+  }
+  body {
+    font-size: var(--font-size-regular);
+    color: var(--text-main);
+    /* background-color: var(--background-main); */
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--ff-heading);
+    color: var(--text-high-contrast);
+  }
+  h1 {
+    font-size: var(--font-size-heading-lg);
+  }
+  a {
+    color: var(--text-high-contrast);
+  }
+  a:hover,
+  a:focus-visible {
+    color: var();
+  }
+}
+@layer layout {
+  /* ADD SECTION CLASS TO YOUR HRML DOCUMENT */
+
+  .wrapper {
+    /* ADD WRAPPER ON ELEMENT WITH EXTRA DIV ELEMENT TO MAKE YOUR WHOLE CONTENT CENTER. */
+    /* max-width: calc(1130px +2rem); */
+    max-width: 1130px;
+    margin-inline: auto;
+    padding: 1rem;
+    box-sizing: content-box;
+
+    &[data-width="narrow"] {
+      max-width: 720px;
+    }
+
+    &[data-width="wide"] {
+      max-width: 1130px;
+    }
+  }
+}
+@layer hero {
+  .inner-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    .main-logo {
+      width: 50%;
+      margin: auto 0;
+    }
+  }
+
+  .links {
+    display: flex;
+    gap: 2rem;
+    li {
+      list-style: none;
+      a {
+        text-decoration: none;
+        font-weight: bolder;
+      }
+    }
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .main-heading {
+    font-size: var(--font-size-heading-regular);
+    margin-bottom: 1.45rem;
+  }
+  .main-text {
+    margin-bottom: 1rem;
+  }
+  .customers {
+    display: flex;
+    height: 3rem;
+    width: 3rem;
+    img {
+      border-radius: 50%;
+    }
+  }
+}
+@layer logos {
+  .logos {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@layer columns {
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 3.75rem;
+    grid-row-gap: 4rem;
+  }
+}
+@layer cards {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 3.75rem;
+  }
+}
+@layer testimonial-columns {
+  .tes-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 5rem;
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      grid-column-gap: 40px;
+      grid-row-gap: 30px;
+    }
+    .customer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-column-gap: 4.5rem;
+      grid-row-gap: 4.5rem;
+    }
+  }
+}
+@layer last-columns {
+  .f-columns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 8rem;
+  }
+}
+
+@layer utilities {
+  /* THESE CLASSES ARE IMPORTANT YOU CAN ADD THEM IN YOUR HRML DOC TO STYLE THEM EASILY. */
+  .visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  .text-center {
+    text-align: center;
+  }
+
+  .text-high-contrast {
+    color: var(--text-high-contrast);
+  }
+
+  .section-title {
+    font-size: var(--font-size-heading-regular);
+  }
+
+  .background-base {
+    background-color: var(--background-base);
+  }
+  .background-light {
+    background-color: var(--background-light);
+  }
+  .background-extra-light {
+    background-color: var(--background-extra-light);
+  }
+  .background-dark {
+    background-color: var(--background-dark);
+  }
+  .background-extra-dark {
+    background-color: var(--background-extra-dark);
+  }
+
+  .font-size-sm {
+    font-size: var(--font-size-sm);
+  }
+  .font-size-regular {
+    font-size: var(--font-size-regular);
+  }
+  .font-size-md {
+    font-size: var(--font-size-md);
+  }
+  .font-size-lg {
+    font-size: var(--font-size-lg);
+  }
+}
