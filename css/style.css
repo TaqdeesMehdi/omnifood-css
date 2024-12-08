@@ -169,21 +169,16 @@ gridegenerator
   .wrapper {
     /* ADD WRAPPER ON ELEMENT WITH EXTRA DIV ELEMENT TO MAKE YOUR WHOLE CONTENT CENTER. */
     /* max-width: calc(1130px +2rem); */
-    max-width: 1130px;
+    max-width: 1200px;
     margin-inline: auto;
-    padding: 1rem;
+    padding: 2rem;
     box-sizing: content-box;
-
-    &[data-width="narrow"] {
-      max-width: 720px;
-    }
-
-    &[data-width="wide"] {
-      max-width: 1130px;
-    }
   }
 }
 @layer hero {
+  .site-header {
+    background-color: #fae5d6;
+  }
   .inner-header {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -205,11 +200,16 @@ gridegenerator
       }
     }
   }
+  .hero-section {
+    background-color: #fae5d6;
+  }
 
   .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    column-gap: 6.75rem;
   }
+
   .main-heading {
     font-size: var(--font-size-heading-regular);
     margin-bottom: 1.45rem;
@@ -217,12 +217,53 @@ gridegenerator
   .main-text {
     margin-bottom: 1rem;
   }
+  .buttons {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    .btn:link,
+    .btn:visited {
+      text-decoration: none;
+      margin-right: 0.75rem;
+      font-size: var(--font-size-md);
+      padding: 0.9rem 0.75rem;
+      border-radius: 0.7rem;
+      font-weight: bold;
+    }
+    .btn-full:link,
+    .btn-full:visited {
+      background-color: #e67e32;
+      color: #fff;
+    }
+    .btn-full:hover,
+    .btn-full:active {
+      background-color: #cf712d;
+    }
+    .btn-half:link,
+    .btn-half:visited {
+      background-color: #fff;
+    }
+    .btn-half:hover,
+    .btn-half:active {
+      background-color: #fae5d6;
+      border: 0 0 0 0.6 #fff;
+    }
+  }
   .customers {
     display: flex;
     height: 3rem;
     width: 3rem;
+    align-items: center;
     img {
       border-radius: 50%;
+    }
+    .customer-text {
+      white-space: nowrap;
+      font-weight: bolder;
+      color: #333;
+      span {
+        color: #e67e32;
+        font-weight: bolder;
+      }
     }
   }
 }
@@ -230,35 +271,93 @@ gridegenerator
   .logos {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    filter: grayscale(100%);
+  }
+  .logo-text {
+    display: flex;
+    justify-content: center;
   }
 }
 @layer columns {
   .columns {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-columns: repeat(2, 1fr); */
+
     grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 3.75rem;
+    /* column-gap: 16rem; */
     grid-row-gap: 4rem;
+    align-items: center;
+    img {
+      width: 35%;
+      /* align-self: end; */
+      /* justify-self: end; */
+    }
+  }
+  .cl-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 7rem;
+  }
+  .cl-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 7rem;
+  }
+  .cl-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 7rem;
+  }
+  h2 {
+    font-size: var(--font-size-heading-lg);
+    color: gray;
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-weight: bolder;
+    /* font-size: var(--font-size-heading-sm); */
+    margin-bottom: 1.5rem;
   }
 }
+
 @layer cards {
   .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 3.75rem;
   }
+  .cards-heading {
+    font-size: var(--font-size-heading-regular);
+    color: #333;
+  }
+  .card3 {
+    ul {
+      li p {
+        display: block;
+      }
+    }
+  }
 }
 @layer testimonial-columns {
+  .section-testimonials {
+    background-color: #fae5d6;
+  }
   .tes-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 5rem;
     .gallery {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(6, 1fr);
-      grid-column-gap: 40px;
-      grid-row-gap: 30px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-column-gap: 1rem;
+      row-gap: 1rem;
+      width: 100%;
+
+      .img {
+        display: block;
+        width: 100%;
+      }
     }
     .customer {
       display: grid;
@@ -266,6 +365,10 @@ gridegenerator
       grid-template-rows: 1fr 1fr;
       grid-column-gap: 4.5rem;
       grid-row-gap: 4.5rem;
+      img {
+        width: 3.6rem;
+        border-radius: 50%;
+      }
     }
   }
 }
