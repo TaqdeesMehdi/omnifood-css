@@ -266,6 +266,15 @@ gridegenerator
       }
     }
   }
+  @media (width < 760px) {
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    .customers {
+      display: flex;
+    }
+  }
 }
 @layer logos {
   .logos {
@@ -287,12 +296,16 @@ gridegenerator
     /* column-gap: 16rem; */
     grid-row-gap: 4rem;
     align-items: center;
-    img {
+    .phone {
       width: 35%;
       /* align-self: end; */
       /* justify-self: end; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
+
   .cl-1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
